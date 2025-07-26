@@ -1,26 +1,40 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
+// This single script handles both the hamburger menu and smooth scrolling.
 
-    // Toggle menu when hamburger is clicked
-    hamburger.addEventListener('click', (e) => {
-        navLinks.classList.toggle('active');
-        e.stopPropagation(); // Prevents click from bubbling up to the document
-    });
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+const allNavLinks = document.querySelectorAll('.nav-links li a');
 
-    // Close menu when a link is clicked
-    document.querySelectorAll('.nav-links li a').forEach(link => {
-        link.addEventListener('click', () => {
-            if (navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
+// --- Hamburger Menu Logic ---
+hamburger.addEventListener('click', (e) => {
+    navLinks.classList.toggle('active');
+    e.stopPropagation(); 
+});
+
+// --- Smooth Scrolling & Close Menu on Link Click ---
+allNavLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        // Smooth scroll logic
+        const href = link.getAttribute('href');
+        if (href.startsWith('#')) {
+            e.preventDefault();
+            const targetElement = document.querySelector(href);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
             }
-        });
-    });
-    
-    // Close menu when clicking outside of it
-    document.addEventListener('click', (e) => {
-        if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+        }
+
+        // Close mobile menu after clicking a link
+        if (navLinks.classList.contains('active')) {
             navLinks.classList.remove('active');
         }
     });
+});
+
+// --- Close Menu When Clicking Outside ---
+document.addEventListener('click', (e) => {
+    if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+        navLinks.classList.remove('active');
+    }
 });
