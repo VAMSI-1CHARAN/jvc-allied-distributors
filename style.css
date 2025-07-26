@@ -226,7 +226,11 @@ footer {
     nav .logo {
         font-size: 1.5rem;
     }
-
+   
+    /* ADD THIS NEW RULE INSIDE THE TABLET MEDIA QUERY */
+    .logo span {
+        display: inline; /* This makes "Distributors" reappear on tablets and desktops */
+    }
     .nav-links {
         position: static;
         flex-direction: row;
