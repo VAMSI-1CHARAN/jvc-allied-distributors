@@ -47,6 +47,11 @@ nav .logo {
     text-decoration: none;
 }
 
+/* This is the rule that hides "Distributors" on mobile */
+.logo span {
+    display: none;
+}
+
 .hamburger {
     font-size: 1.8rem;
     cursor: pointer;
@@ -127,7 +132,7 @@ nav .logo {
     gap: 2rem;
 }
 .about-image {
-    order: 1; /* Show image first on mobile */
+    order: 1;
 }
 .about-text {
     order: 2;
@@ -213,6 +218,39 @@ footer {
     padding: 1.5rem 1rem;
 }
 
+/* === PRODUCT SPECIFICATIONS STYLES === */
+.specs-container {
+    margin-top: 2rem;
+    text-align: left;
+}
+.specs-container h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+}
+.spec-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0.25rem;
+    border-bottom: 1px solid #f5f5f5;
+}
+.spec-item:last-child {
+    border-bottom: none;
+}
+.spec-title {
+    font-weight: 600;
+    color: var(--light-text);
+    flex-basis: 40%;
+}
+.spec-value {
+    color: var(--dark-color);
+    text-align: right;
+    flex-basis: 60%;
+}
+
 /* === TABLET STYLES (min-width: 768px) === */
 @media (min-width: 768px) {
     section {
@@ -226,11 +264,12 @@ footer {
     nav .logo {
         font-size: 1.5rem;
     }
-   
-    /* ADD THIS NEW RULE INSIDE THE TABLET MEDIA QUERY */
+
+    /* This rule makes "Distributors" reappear on larger screens */
     .logo span {
-        display: inline; /* This makes "Distributors" reappear on tablets and desktops */
+        display: inline;
     }
+
     .nav-links {
         position: static;
         flex-direction: row;
@@ -271,7 +310,7 @@ footer {
     }
     
     .about-image {
-        order: 2; /* Image on the right for tablets/desktops */
+        order: 2;
         flex: 1;
     }
     .about-text {
@@ -310,43 +349,3 @@ footer {
         grid-template-columns: repeat(4, 1fr);
     }
 }
-/* === START: NEW STYLES FOR PRODUCT SPECIFICATIONS === */
-
-.specs-container {
-    margin-top: 2rem;
-    text-align: left;
-}
-
-.specs-container h4 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--dark-color);
-    margin-bottom: 1rem;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 0.5rem;
-}
-
-.spec-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.75rem 0.25rem;
-    border-bottom: 1px solid #f5f5f5;
-}
-
-.spec-item:last-child {
-    border-bottom: none;
-}
-
-.spec-title {
-    font-weight: 600;
-    color: var(--light-text);
-    flex-basis: 40%; /* Assigns space for the title */
-}
-
-.spec-value {
-    color: var(--dark-color);
-    text-align: right;
-    flex-basis: 60%; /* Assigns space for the value */
-}
-
-/* === END: NEW STYLES FOR PRODUCT SPECIFICATIONS === */
