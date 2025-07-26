@@ -327,3 +327,103 @@ footer {
 .service-card {
     padding: 1.5rem; /* Overrides previous padding to ensure it's not too large */
 }
+/* === START: RESPONSIVE DESIGN & MOBILE STYLES === */
+
+/* First, style the mobile menu elements (they are hidden on desktop) */
+.hamburger {
+    display: none; /* Hidden by default on desktop */
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Media Query for tablets and mobile phones */
+@media (max-width: 768px) {
+
+    /* --- Navigation --- */
+    nav .shop-now-btn {
+        display: none; /* Hide the 'Book Now' button to save space */
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: -100%; /* Start off-screen */
+        width: 100%;
+        height: 100vh;
+        background-color: #333;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: left 0.5s ease-in-out;
+        gap: 3rem;
+    }
+
+    .nav-links.active {
+        left: 0; /* Slide into view when active */
+    }
+
+    .nav-links li a {
+        color: #fff; /* White text for links on the dark background */
+        font-size: 1.5rem;
+    }
+
+    .hamburger {
+        display: block; /* Show the hamburger icon */
+        z-index: 1001; /* Make sure it's on top of everything */
+    }
+    
+    .hamburger.active {
+       color: #fff; /* Change color when menu is open */
+    }
+
+
+    /* --- General Section and Font Adjustments --- */
+    section {
+        padding: 3rem 5%;
+    }
+
+    section h2 {
+        font-size: 2rem;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-text p {
+        font-size: 1.2rem;
+    }
+
+
+    /* --- Layout Stacking --- */
+    .about-container, .contact-container {
+        flex-direction: column; /* Stack items vertically */
+    }
+
+    .products-container, .service-container {
+        grid-template-columns: 1fr; /* Make product/service cards full width */
+        gap: 2rem;
+    }
+    
+    .product-card {
+        width: 100%; /* Ensure card takes full width */
+    }
+
+    /* --- Spacing and Alignment --- */
+    .map {
+        margin-top: 2rem;
+    }
+}
+
+/* Further adjustments for very small screens */
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+}
+
+/* === END: RESPONSIVE DESIGN & MOBILE STYLES === */
